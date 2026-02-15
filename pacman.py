@@ -21,25 +21,31 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+
+    new_x = player_x
+    new_y = player_y
     keys = pygame.key.get_pressed()
 
         
     #go right
     if keys[pygame.K_RIGHT]:
-        player_x += 1
+        new_x += 2
 
     #go left
     if keys[pygame.K_LEFT]:
-        player_x -=  1
+        new_x -=  2
 
     #go up
     if keys[pygame.K_UP]:
-        player_y -=  1
+        new_y -=  2
 
     #go down
     if keys[pygame.K_DOWN]:
-        player_y += 1
+        new_y += 2
 
+
+    grid_x = new_x // TILE_SIZE
+    grid_y = new_y // TILE_SIZE
 
     #Iterates through the screen to draw the board
     for r, row in enumerate(board):
